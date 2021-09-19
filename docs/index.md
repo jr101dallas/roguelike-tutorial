@@ -2,6 +2,28 @@
 layout: default
 ---
 
+  <nav>
+      <a href="/" >
+        Home
+      </a>
+      <a href="/docs/" >
+        Docs
+      </a>
+      <a href="/posts/" >
+        Posts
+      </a>
+      <a href="/breadcrumbs/" >
+        Breadcrumbs
+      </a>
+      <a href="/roguelike-tutorial/" style="color: green;">
+        Roguelike Tutorial
+      </a>
+      <a href="/about/" >
+        About
+      </a>
+  </nav>
+
+
 ## Welcome to My Roguelike Tutorial
 For a start, this will have to do. 
 
