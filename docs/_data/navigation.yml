@@ -1,0 +1,10 @@
+- name: Home
+  link: https://assumeforsimplicity.com
+- name: Posts
+  link: https://assumeforsimplicity.com/posts/
+- name: Breadcrumbs
+  link: https://assumeforsimplicity.com/breadcrumbs/
+- name: Roguelike Tutorial
+  link: /
+- name: About
+  link: https://assumeforsimplicity.com/about/
