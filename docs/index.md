@@ -17,6 +17,7 @@ The following will figure prominently but are not the focus of the tutorial:
 It's important to also point out that there are tutorials out there for GoRogue and SadConsole roguelikes already.  
   1. [ansiware](ansiware)  
   2. [roguelike-with-gorogue-sadconsole](mark-james)  
+
 I'll need to refresh my memory on these as I go because they've done some important work, but the main point I'm aiming for has a different focus. Yes, still aiming for functional code, but also for business methods and habits that keep code functional and keep development fast and reliable far into the future. In short, a development strategy for a business built around a coding project.  
 
 [gorogue]: https://github.com/Chris3606/GoRogue
