@@ -3,7 +3,7 @@ layout: default
 ---
 
 ## Welcome to My Roguelike Tutorial
-For a start, this will have to do. [Breadcrumbs](/breadcrumbs/)
+For a start, this will have to do. [Breadcrumbs](/roguelike-tutorial/breadcrumbs/)
 
 ## Starting the Real Project...
 ...that I've had on my mind. I'm wanting to do a tutorial that's a little different than most of the ones I've seen. I'm going to emphasize some good habits that I don't see in a lot of tutorials. It's understandable, there's a thing that each tutorial is trying to teach and a narrow focus helps to keep the lesson clear. The point, hopefully also a clear focus in this case, will be to create a long term sustainable project that enables and encourages [momentum](https://projectmanager.com.au/managing-projects-with-momentum/).
