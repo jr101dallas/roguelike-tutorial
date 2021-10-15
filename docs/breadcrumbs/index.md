@@ -23,3 +23,4 @@ GoRogue and location and proximity
 * .NET core .dlls where possible, command line to start  
 * test projects for each code project  
 * planning to wrap libraries in a separate project in order to keep my architecture clean, the wrapper may be ugly as a result  
+* entity, component, system  
