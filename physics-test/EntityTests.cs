@@ -12,5 +12,12 @@ namespace physics_test
             var entity = new Entity();
             Assert.AreEqual(entity.Id, 0);
         }
+
+        [TestMethod]
+        public void DefaultEntityHasZeroComponents()
+        {
+            var entity = new Entity();
+            Assert.AreEqual(entity.components.Count, 0);
+        }
     }
 }
