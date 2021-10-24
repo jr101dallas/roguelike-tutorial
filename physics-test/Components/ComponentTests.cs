@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using physics.Components;
 using physics.Interfaces;
 
-namespace physics_test
+namespace physics_test.Components
 {
     [TestClass]
     public class ComponentTests
