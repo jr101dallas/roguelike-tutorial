@@ -1,4 +1,4 @@
-namespace physics
+namespace physics.Interfaces
 {
     public interface IComponent
     {  

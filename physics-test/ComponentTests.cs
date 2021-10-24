@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using physics;
+using physics.Components;
+using physics.Interfaces;
 
 namespace physics_test
 {
