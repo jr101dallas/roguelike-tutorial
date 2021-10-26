@@ -8,9 +8,8 @@ namespace physics_test
     {
         [TestMethod]
         public void DisplayNameIncludes()
-        {
-            var physics = new Program();
-            var name = physics.GetGameDisplayName();
+        {            
+            var name = Program.GetGameDisplayName();
             Assert.AreEqual("Utopia: The Tutorial", name);
         }
     }

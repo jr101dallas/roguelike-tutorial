@@ -6,12 +6,16 @@ namespace physics
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var gameName = GetGameDisplayName();
+            var displayText = $"Hello World! Welcome to {gameName}";
+            Console.WriteLine(displayText);
+
+            var unv = new Universe();
         }
 
-        public string GameTitle = "Utopia";
+        public const string GameTitle = "Utopia";
 
-        public string GetGameDisplayName()
+        public static string GetGameDisplayName()
         {
             return $"{GameTitle}: The Tutorial";
         }
