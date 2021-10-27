@@ -27,16 +27,5 @@ namespace physics_test
             var component = new Entity();
             Assert.IsTrue(component is IEntity);
         }
-        
-        // [TestMethod]
-        // public void TargetEntityRemovedFromPlay()
-        // {
-        //     var originEntity = new Entity();
-        //     var targetEntity = new Entity();
-
-        //     originEntity.Target(targetEntity);
-
-        //     Assert.IsNull(targetEntity);
-        // }
     }
 }
