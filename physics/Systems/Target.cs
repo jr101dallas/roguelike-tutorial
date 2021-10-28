@@ -4,9 +4,18 @@ namespace physics.Systems
 {
     public class Target : ISystem
     {
-        public void TargetEntity(Universe unv, Entity originEntity, Entity targetEntity)
+        private Universe _unv;        
+
+        public Target(Universe unv)
         {
-            unv.entities.Remove(targetEntity.Id);
+            _unv = unv;
         }
+        
+        public void TargetEntity(Entity originEntity, Entity targetEntity)
+        {
+            _unv.entities.Remove(targetEntity.Id);
+        }
+
+        public Universe GetUniverse() => _unv;
     }
 }

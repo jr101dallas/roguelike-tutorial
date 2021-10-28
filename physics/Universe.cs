@@ -7,13 +7,13 @@ namespace physics
     public class Universe
     {
         public SortedList<int, IEntity> entities = new SortedList<int, IEntity>();
-        public Dictionary<string, ISystem> systems = new Dictionary<string, ISystem>();
+        public Infrastructure inf;
 
         public Universe()
         {
-            LoadSystems();
+            inf = new Infrastructure(this);
         }
-        
+
         public int LastEntityId()
         {
             if(entities.Count == 0) return 0;
@@ -27,11 +27,6 @@ namespace physics
             var entity = ef.GetEntity(LastEntityId());
             entities.Add(entity.Id, entity);
             return entity;
-        }
-
-        public void LoadSystems()
-        {
-            systems.Add(nameof(Target), new Target());
         }
     }
 }

@@ -15,8 +15,7 @@ namespace physics_test
             var targetEntity = unv.GetEntity();
             var tEntityId = targetEntity.Id;
 
-            var target = (Target)unv.systems[nameof(Target)];
-            target.TargetEntity(unv, originEntity, targetEntity);
+            unv.inf.target.TargetEntity(originEntity, targetEntity);
 
             Assert.IsFalse(unv.entities.TryGetValue(tEntityId, out _));
         }
