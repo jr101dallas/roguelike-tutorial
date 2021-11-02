@@ -1,3 +1,4 @@
+using System;
 using Physics.Interfaces;
 
 namespace Physics.Systems
@@ -13,7 +14,9 @@ namespace Physics.Systems
         
         public void TargetEntity(Entity originEntity, Entity targetEntity)
         {
-            _unv.entities.Remove(targetEntity.Id);
+            var removeEntityId = targetEntity.Id;
+            Console.WriteLine($"Entity {removeEntityId.ToString()} has been removed from play!");
+            _unv.entities.Remove(removeEntityId);
         }
 
         public Universe GetUniverse() => _unv;

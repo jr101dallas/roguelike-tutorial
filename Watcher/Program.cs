@@ -12,6 +12,10 @@ namespace Watcher
             Console.WriteLine(displayText);
 
             var unv = new Universe();
+            var firstEntity = unv.GetEntity();
+            var secondEntity = unv.GetEntity();
+
+            unv.inf.target.TargetEntity(firstEntity, secondEntity);
         }
 
         public const string GameTitle = "Utopia";
