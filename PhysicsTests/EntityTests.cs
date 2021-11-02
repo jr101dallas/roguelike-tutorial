@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using physics;
-using physics.Interfaces;
+using Physics;
+using Physics.Interfaces;
 
-namespace physics_test
+namespace PhysicsTest
 {
     [TestClass]
     public class EntityTests

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using physics.Interfaces;
+using Physics.Interfaces;
 
-namespace physics
+namespace Physics
 {
     public class Entity : IEntity
     {

@@ -1,6 +1,6 @@
-using physics.Interfaces;
+using Physics.Interfaces;
 
-namespace physics.Systems
+namespace Physics.Systems
 {
     public class Target : ISystem
     {

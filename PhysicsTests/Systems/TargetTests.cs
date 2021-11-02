@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using physics;
-using physics.Systems;
+using Physics;
+using Physics.Systems;
 
-namespace physics_test
+namespace PhysicsTest
 {
     [TestClass]
     public class TargetTests

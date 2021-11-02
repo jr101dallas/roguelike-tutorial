@@ -1,6 +1,7 @@
 ﻿using System;
+using Physics;
 
-namespace Physics
+namespace Watcher
 {
     public class Program
     {

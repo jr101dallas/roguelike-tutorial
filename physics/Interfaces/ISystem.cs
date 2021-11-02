@@ -1,4 +1,4 @@
-namespace physics.Interfaces
+namespace Physics.Interfaces
 {
     public interface ISystem
     {

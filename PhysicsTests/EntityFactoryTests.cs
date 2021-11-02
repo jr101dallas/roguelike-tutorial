@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using physics;
+using Physics;
 
-namespace physics_test
+namespace PhysicsTest
 {
     [TestClass]
     public class EntityFactoryTests

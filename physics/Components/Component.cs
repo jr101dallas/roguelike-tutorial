@@ -1,6 +1,6 @@
-using physics.Interfaces;
+using Physics.Interfaces;
 
-namespace physics.Components
+namespace Physics.Components
 {
     public class Component : IComponent
     {        

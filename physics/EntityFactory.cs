@@ -1,4 +1,4 @@
-namespace physics
+namespace Physics
 {
     public class EntityFactory
     {

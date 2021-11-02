@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using physics.Interfaces;
-using physics.Systems;
+using Physics.Interfaces;
+using Physics.Systems;
 
-namespace physics
+namespace Physics
 {
     public class Universe
     {

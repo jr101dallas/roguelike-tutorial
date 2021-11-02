@@ -1,4 +1,4 @@
-namespace physics.Systems
+namespace Physics.Systems
 {
     public class Infrastructure
     {

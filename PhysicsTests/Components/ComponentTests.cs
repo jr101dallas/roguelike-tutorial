@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using physics.Components;
-using physics.Interfaces;
+using Physics.Components;
+using Physics.Interfaces;
 
-namespace physics_test.Components
+namespace PhysicsTest.Components
 {
     [TestClass]
     public class ComponentTests
