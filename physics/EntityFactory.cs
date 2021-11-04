@@ -1,4 +1,5 @@
 using System;
+using Physics.Components;
 
 namespace Physics
 {
@@ -7,10 +8,10 @@ namespace Physics
         public Entity GetEntity(int lastEntityId)
         {
             var newEntityId = ++lastEntityId;
-            Console.WriteLine($"Entity {newEntityId.ToString()} has entered play!");            
-            return new Entity(){
-                Id = newEntityId
-            };
+            Console.WriteLine($"Entity {newEntityId.ToString()} has entered play!");
+            var newEntity = new Entity(){Id = newEntityId};
+            newEntity.components.Add("Aim", new Aim());
+            return newEntity;
         }
     }
 }

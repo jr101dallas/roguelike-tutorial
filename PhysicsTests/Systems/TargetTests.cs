@@ -17,7 +17,7 @@ namespace PhysicsTest
 
             unv.inf.target.TargetEntity(originEntity, targetEntity);
 
-            Assert.IsFalse(unv.entities.TryGetValue(tEntityId, out _));
+            Assert.IsFalse(unv.entities.TryGetValue(tEntityId, out _), "Targeted Entity still exists.");
         }
     }
 }
