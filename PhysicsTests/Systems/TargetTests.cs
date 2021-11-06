@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Physics;
 using Physics.Systems;
@@ -10,7 +11,8 @@ namespace PhysicsTest
         [TestMethod]
         public void TargetEntityRemovedFromPlay()
         {
-            var unv = new Universe();
+            var rng100 = new Random(100);            
+            var unv = new Universe(rng100);
             var originEntity = unv.GetEntity();
             var targetEntity = unv.GetEntity();
             var tEntityId = targetEntity.Id;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Physics.Interfaces;
 using Physics.Systems;
@@ -7,11 +8,15 @@ namespace Physics
     public class Universe
     {
         public SortedList<int, IEntity> entities = new SortedList<int, IEntity>();
+        private Random _rand;
         public Infrastructure inf;
 
-        public Universe()
+        public Universe() : this(new Random()){}  
+
+        public Universe(Random rng)
         {
-            inf = new Infrastructure(this);
+            _rand = rng;
+            inf = new Infrastructure(this, _rand);
         }
 
         public int LastEntityId()
