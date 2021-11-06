@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Physics.Components;
 using Physics.Interfaces;
+using Physics.Items;
 
 namespace PhysicsTest.Components
 {
@@ -19,6 +20,14 @@ namespace PhysicsTest.Components
         {
             var inventory = new Inventory();
             Assert.AreEqual(1, inventory.items.Count, "Expected a single hardcoded Item in Inventory constructor.");
+        }
+
+        [TestMethod]
+        public void DefaultInventoryItemOneIsWeapon()
+        {
+            var inventory = new Inventory();
+            var firstItem = inventory.items[1];
+            Assert.AreEqual(typeof(Weapon), firstItem.GetType(), "First item wasn't Type Weapon.");
         }
     }
 }
