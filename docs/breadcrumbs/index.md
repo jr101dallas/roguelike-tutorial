@@ -5,6 +5,9 @@ layout: default
 # Plan
 Pulling together breadcrumbs blathered about in the blog and other places.
 
+## Roguelike Repo Location
+The GitHub repository for this project is [here](https://github.com/jr101dallas/roguelike-tutorial)
+
 ## Skip
 SadConsole and display and look  
 GoRogue and location and proximity  

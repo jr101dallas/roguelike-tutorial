@@ -29,5 +29,20 @@ namespace PhysicsTest
                 Assert.Fail();
             }
         }
+
+        [TestMethod]
+        public void GetEntityDefaultsInventoryComponent()
+        {
+            var ef = new EntityFactory();
+            var entity = ef.GetEntity(0);
+            if (entity.components.TryGetValue("Inventory", out var defaultInventory))
+            {
+                Assert.AreEqual(typeof(Physics.Components.Inventory), defaultInventory.GetType());
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
     }
 }
