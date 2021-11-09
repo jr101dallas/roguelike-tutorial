@@ -16,12 +16,14 @@ GoRogue and location and proximity
 1. combat interaction (when to attack can be filled in when proximity exists)  
    1. base attack stats and bonuses
    1. temporary bonuses
-   1. targeting
-   1. misses and evasion
+   1. <s>targeting</s>
+   1. <s>misses</s> and evasion
    1. damage and damage types
    1. damage ablation and item wear
    1. fatigue, burst activity
-1. inventory (for now I won't "show" wearing armor in the display)  
+1. <s>inventory</s> (for now I won't "show" wearing armor in the display)
+  1. inventory management system for effects that happen to all items
+  1. item theft
 1. dialog (again, proximity later)  
    1. factions and individual reactions
    1. continuing relationships
@@ -35,6 +37,12 @@ GoRogue and location and proximity
 1. enemies and merchants to fight and bargain with  
 1. heads-up display
 1. Entity stats and achievements
+1. messages for lots of things that would show in Watcher
+1. magic string eliminiation
+1. refactoring to single purpose, etc.
+1. summary component or system
+1. setting random seed at startup
+  1. research games that allow setting the random seed
 
 #### Architecture Notes
 * aim to deliver value, user functionality, admin functionality, think customers  
