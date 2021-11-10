@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Physics.Components;
 using Physics.Interfaces;
 
 namespace Physics
@@ -6,6 +7,6 @@ namespace Physics
     public class Entity : IEntity
     {
         public int Id;
-        public Dictionary<string, IComponent> components = new Dictionary<string, IComponent>();
+        public Dictionary<ComponentType, IComponent> components = new Dictionary<ComponentType, IComponent>();
     }
 }

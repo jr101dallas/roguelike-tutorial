@@ -17,15 +17,15 @@ namespace Physics.Systems
         
         public void TargetEntity(Entity originEntity, Entity targetEntity)
         {
-            if (!originEntity.components.TryGetValue("Aim", out var aimIComponent)) return;
+            if (!originEntity.components.TryGetValue(ComponentType.Offense, out var aimIComponent)) return;
 
             int aimMods = 0;
-            if (originEntity.components.TryGetValue("Inventory", out var inventoryIComponent))
+            if (originEntity.components.TryGetValue(ComponentType.Inventory, out var inventoryIComponent))
             {
                 aimMods = GetAimModifiers(inventoryIComponent);
             }
 
-            var aimComponent = (Aim)aimIComponent;
+            var aimComponent = (Offense)aimIComponent;
             var aimModifier = aimComponent.BaseAim;
             var num = _rand.Next(100);
             if (num + aimModifier + aimMods > 50)
@@ -47,10 +47,10 @@ namespace Physics.Systems
 
             foreach(IItem item in inv.items.Values)
             {
-                if (item is IAimMods)
+                if (item is IOffenseMods)
                 {
-                    var modItem = (IAimMods)item;
-                    aimMods += modItem.GetAimModifiers();
+                    var modItem = (IOffenseMods)item;
+                    aimMods += modItem.GetOffenseModifiers();
                 }
             }
 

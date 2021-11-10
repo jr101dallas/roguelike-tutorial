@@ -10,8 +10,8 @@ namespace Physics
             var newEntityId = ++lastEntityId;
             Console.WriteLine($"Entity {newEntityId.ToString()} has entered play!");
             var newEntity = new Entity(){Id = newEntityId};
-            newEntity.components.Add("Aim", new Aim());
-            newEntity.components.Add("Inventory", new Inventory());
+            newEntity.components.Add(ComponentType.Offense, new Offense());
+            newEntity.components.Add(ComponentType.Inventory, new Inventory());
             return newEntity;
         }
     }

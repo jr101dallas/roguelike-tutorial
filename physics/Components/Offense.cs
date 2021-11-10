@@ -2,8 +2,9 @@ using Physics.Interfaces;
 
 namespace Physics.Components
 {
-    public class Aim : IComponent
+    public class Offense : IComponent
     {
         public readonly int BaseAim = 5;
+        public readonly int BaseDamage = 5;
     }
 }

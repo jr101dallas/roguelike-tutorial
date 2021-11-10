@@ -18,14 +18,14 @@ namespace PhysicsTest.Components
         public void DefaultWeaponIsIAimMods()
         {
             var weapon = new Weapon();
-            Assert.IsTrue(weapon is IAimMods);
+            Assert.IsTrue(weapon is IOffenseMods);
         }
 
         [TestMethod]
         public void WeaponBonusAimIsFive()
         {
             var weapon = new Weapon();
-            Assert.AreEqual(5, weapon.GetAimModifiers(), "Weapon BonusAim isn't the expected value.");
+            Assert.AreEqual(5, weapon.GetOffenseModifiers(), "Weapon BonusAim isn't the expected value.");
         }
     }
 }
