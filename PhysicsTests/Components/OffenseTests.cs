@@ -15,10 +15,17 @@ namespace PhysicsTest.Components
         }
 
         [TestMethod]
-        public void DefaultOffenseBaseAimIsFive()
+        public void DefaultOffenseBaseAimIsThree()
         {
             var off = new Offense();
-            Assert.AreEqual(5, off.BaseAim);
+            Assert.AreEqual(3, off.BaseAim);
+        }
+
+        [TestMethod]
+        public void DefaultOffenseBaseDamageIsFive()
+        {
+            var off = new Offense();
+            Assert.AreEqual(5, off.BaseDamage);
         }
     }
 }

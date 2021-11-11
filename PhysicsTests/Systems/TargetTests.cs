@@ -10,7 +10,7 @@ namespace PhysicsTest
     public class TargetTests
     {
         [TestMethod]
-        public void TargetEntityRemovedFromPlay()
+        public void TargetEntityNotRemovedFromPlay()
         {
             var rng100 = new Random(100);            
             var unv = new Universe(rng100);
@@ -20,7 +20,24 @@ namespace PhysicsTest
 
             unv.inf.target.TargetEntity(originEntity, targetEntity);
 
-            Assert.IsFalse(unv.entities.TryGetValue(tEntityId, out _), "Targeted Entity still exists.");
+            Assert.IsTrue(unv.entities.TryGetValue(tEntityId, out _), "Targeted Entity unexpectedly removed from play.");
+        }
+
+        [TestMethod]
+        public void TargetEntityCurrentHealthIs45()
+        {
+            var rng100 = new Random(100);            
+            var unv = new Universe(rng100);
+            var originEntity = unv.GetEntity();
+            var targetEntity = unv.GetEntity();
+            var tEntityId = targetEntity.Id;
+
+            unv.inf.target.TargetEntity(originEntity, targetEntity);
+
+            unv.entities.TryGetValue(tEntityId, out var ent);
+            var entity = (Entity)ent;
+            var defense = (Defense)entity.components[ComponentType.Defense];
+            Assert.AreEqual(45, defense.CurrentHealth);
         }
 
         [TestMethod]
