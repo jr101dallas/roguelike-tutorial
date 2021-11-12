@@ -37,11 +37,11 @@ namespace PhysicsTest
             unv.entities.TryGetValue(tEntityId, out var ent);
             var entity = (Entity)ent;
             var defense = (Defense)entity.components[ComponentType.Defense];
-            Assert.AreEqual(45, defense.CurrentHealth);
+            Assert.AreEqual(40, defense.CurrentHealth, "Entity has unexpected CurrentHealth");
         }
 
         [TestMethod]
-        public void GetAimModifiersSumsAll()
+        public void GetItemModifiersSumsAllAim()
         {         
             var unv = new Universe();
             var inv = new Inventory();
@@ -49,9 +49,23 @@ namespace PhysicsTest
             inv.items.Add(2, new Weapon());
             inv.items.Add(3, new Weapon());
 
-            var aimModsTotal = unv.inf.target.GetAimModifiers(inv);
+            var mods = unv.inf.target.GetItemModifiers(inv);
 
-            Assert.AreEqual(15, aimModsTotal, "aimModsTotal not expected value.");
+            Assert.AreEqual(15, mods.aimBonus, "aimModsTotal not expected value.");
+        }
+
+        [TestMethod]
+        public void GetItemModifiersSumsAllDamage()
+        {         
+            var unv = new Universe();
+            var inv = new Inventory();
+            //inv.items.Add(1, new Weapon()); items[1] default hardcoded to Weapon
+            inv.items.Add(2, new Weapon());
+            inv.items.Add(3, new Weapon());
+
+            var mods = unv.inf.target.GetItemModifiers(inv);
+
+            Assert.AreEqual(15, mods.damageBonus, "aimModsTotal not expected value.");
         }
     }
 }

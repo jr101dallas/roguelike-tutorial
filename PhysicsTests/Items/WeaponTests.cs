@@ -25,7 +25,16 @@ namespace PhysicsTest.Components
         public void WeaponBonusAimIsFive()
         {
             var weapon = new Weapon();
-            Assert.AreEqual(5, weapon.GetOffenseModifiers(), "Weapon BonusAim isn't the expected value.");
+            var mods = weapon.GetOffenseModifiers();
+            Assert.AreEqual(5, mods.aimBonus, "Weapon BonusAim isn't the expected value.");
+        }
+
+        [TestMethod]
+        public void WeaponBonusDamageIsFive()
+        {
+            var weapon = new Weapon();
+            var mods = weapon.GetOffenseModifiers();
+            Assert.AreEqual(5, mods.damageBonus, "Weapon BonusDamage isn't the expected value.");
         }
     }
 }
