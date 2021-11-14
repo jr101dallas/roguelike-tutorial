@@ -26,7 +26,7 @@ namespace PhysicsTest.Components
         {
             var weapon = new Weapon();
             var mods = weapon.GetOffenseModifiers();
-            Assert.AreEqual(5, mods.aimBonus, "Weapon BonusAim isn't the expected value.");
+            Assert.AreEqual(5, mods.totalAim, "Weapon BonusAim isn't the expected value.");
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace PhysicsTest.Components
         {
             var weapon = new Weapon();
             var mods = weapon.GetOffenseModifiers();
-            Assert.AreEqual(5, mods.damageBonus, "Weapon BonusDamage isn't the expected value.");
+            Assert.AreEqual(5, mods.totalDamage, "Weapon BonusDamage isn't the expected value.");
         }
     }
 }

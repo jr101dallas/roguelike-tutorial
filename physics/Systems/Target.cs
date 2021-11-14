@@ -1,6 +1,7 @@
 using System;
 using Physics.Components;
 using Physics.Interfaces;
+using Physics.Models;
 
 namespace Physics.Systems
 {
@@ -20,7 +21,7 @@ namespace Physics.Systems
             if (!HasDefense(targetEntity, out var defenseComponent)) return;
             if (!HasOffense(originEntity, out var offenseComponent)) return;
 
-            (int aimBonus, int damageBonus) offenseMods = (0, 0);
+            OffenseMods offenseMods = new OffenseMods();
             if (HasInventory(originEntity, out var inventoryComponent))
             {
                 offenseMods = GetItemModifiers(inventoryComponent);
@@ -28,12 +29,12 @@ namespace Physics.Systems
 
             var aimModifier = offenseComponent.BaseAim;
             var num = _rand.Next(100);
-            if (num + aimModifier + offenseMods.aimBonus > 50)
+            if (num + aimModifier + offenseMods.totalAim > 50)
             {
                 var removeEntityId = targetEntity.Id;
                 Console.WriteLine($"Entity {removeEntityId.ToString()} has been removed from play!");
 
-                defenseComponent.CurrentHealth -= offenseComponent.BaseDamage + offenseMods.damageBonus;
+                defenseComponent.CurrentHealth -= offenseComponent.BaseDamage + offenseMods.totalDamage;
                 if(defenseComponent.CurrentHealth <= 0)
                     _unv.entities.Remove(removeEntityId);
             }
@@ -41,9 +42,9 @@ namespace Physics.Systems
 
         public Universe GetUniverse() => _unv;
 
-        public (int aimBonus, int damageBonus) GetItemModifiers(Inventory inventoryComponent)
+        public OffenseMods GetItemModifiers(Inventory inventoryComponent)
         {
-            (int aimBonus, int damageBonus) offenseMods = (0, 0);
+            OffenseMods offenseMods = new OffenseMods();
 
             foreach(IItem item in inventoryComponent.items.Values)
             {
@@ -51,8 +52,8 @@ namespace Physics.Systems
                 {
                     var modItem = (IOffenseMods)item;
                     var mods = modItem.GetOffenseModifiers();
-                    offenseMods.aimBonus += mods.aimBonus;
-                    offenseMods.damageBonus += mods.damageBonus;                    
+                    offenseMods.totalAim += mods.totalAim;
+                    offenseMods.totalDamage += mods.totalDamage;                    
                 }
             }
 

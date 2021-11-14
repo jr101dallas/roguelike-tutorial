@@ -1,7 +1,9 @@
+using Physics.Models;
+
 namespace Physics.Interfaces
 {
     public interface IOffenseMods
     {
-        public (int aimBonus, int damageBonus) GetOffenseModifiers();
+        public OffenseMods GetOffenseModifiers();
     }
 }

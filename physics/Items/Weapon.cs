@@ -1,4 +1,5 @@
 using Physics.Interfaces;
+using Physics.Models;
 
 namespace Physics.Items
 {
@@ -7,9 +8,13 @@ namespace Physics.Items
         private int BonusAim = 5;
         private int BonusDamage = 5;
 
-        public (int aimBonus, int damageBonus) GetOffenseModifiers()
+        public OffenseMods GetOffenseModifiers()
         {
-            return (BonusAim, BonusDamage);
+            return new OffenseMods()
+            {
+                totalAim = BonusAim,
+                totalDamage = BonusDamage
+            };
         }
     }
 }

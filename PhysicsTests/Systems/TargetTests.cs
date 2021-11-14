@@ -51,7 +51,7 @@ namespace PhysicsTest
 
             var mods = unv.inf.target.GetItemModifiers(inv);
 
-            Assert.AreEqual(15, mods.aimBonus, "aimModsTotal not expected value.");
+            Assert.AreEqual(15, mods.totalAim, "aimModsTotal not expected value.");
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace PhysicsTest
 
             var mods = unv.inf.target.GetItemModifiers(inv);
 
-            Assert.AreEqual(15, mods.damageBonus, "aimModsTotal not expected value.");
+            Assert.AreEqual(15, mods.totalDamage, "aimModsTotal not expected value.");
         }
     }
 }
