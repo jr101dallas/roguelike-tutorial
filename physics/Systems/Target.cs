@@ -16,6 +16,8 @@ namespace Physics.Systems
             _rand = rng;
         }
         
+        public Universe GetUniverse() => _unv;
+
         public void TargetEntity(Entity originEntity, Entity targetEntity)
         {
             if (!targetEntity.HasDefense(out var defenseComponent)) return;
@@ -32,8 +34,6 @@ namespace Physics.Systems
                 }
             }
         }
-
-        public Universe GetUniverse() => _unv;
 
         public OffenseMods GetEntityOffenseModifiers(Entity entity)
         {

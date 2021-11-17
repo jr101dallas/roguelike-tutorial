@@ -1,5 +1,3 @@
-using Physics.Interfaces;
-
 namespace Physics.Components
 {
     public enum ComponentType
