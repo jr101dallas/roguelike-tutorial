@@ -18,72 +18,65 @@ namespace Physics.Systems
         
         public void TargetEntity(Entity originEntity, Entity targetEntity)
         {
-            if (!HasDefense(targetEntity, out var defenseComponent)) return;
-            if (!HasOffense(originEntity, out var offenseComponent)) return;
+            if (!targetEntity.HasDefense(out var defenseComponent)) return;
 
-            OffenseMods offenseMods = new OffenseMods();
-            if (HasInventory(originEntity, out var inventoryComponent))
-            {
-                offenseMods = GetItemModifiers(inventoryComponent);
-            }
-
-            var aimModifier = offenseComponent.BaseAim;
+            var offenseMods = GetEntityOffenseModifiers(originEntity);
             var num = _rand.Next(100);
-            if (num + aimModifier + offenseMods.totalAim > 50)
+            if (num + offenseMods.totalAim > 50)
             {
-                var removeEntityId = targetEntity.Id;
-                Console.WriteLine($"Entity {removeEntityId.ToString()} has been removed from play!");
-
-                defenseComponent.CurrentHealth -= offenseComponent.BaseDamage + offenseMods.totalDamage;
+                defenseComponent.CurrentHealth -= offenseMods.totalDamage;
                 if(defenseComponent.CurrentHealth <= 0)
-                    _unv.entities.Remove(removeEntityId);
+                {
+                    Console.WriteLine($"Entity {targetEntity.Id.ToString()} has been removed from play!");
+                    _unv.entities.Remove(targetEntity.Id);
+                }
             }
         }
 
         public Universe GetUniverse() => _unv;
 
-        public OffenseMods GetItemModifiers(Inventory inventoryComponent)
+        public OffenseMods GetEntityOffenseModifiers(Entity entity)
         {
-            OffenseMods offenseMods = new OffenseMods();
+            var offenseMods = GetOffenseModifiers(entity);
+            offenseMods.Add(GetInventoryOffenseModifiers(entity));
+            return offenseMods;
+        }
 
-            foreach(IItem item in inventoryComponent.items.Values)
+        public OffenseMods GetOffenseModifiers(Entity entity)
+        {
+            var offenseMods = new OffenseMods();
+            
+            if (!entity.HasOffense(out var offenseComponent)) return offenseMods;
+
+            offenseMods.Add(offenseComponent);
+
+            return offenseMods;
+        }
+
+        public OffenseMods GetInventoryOffenseModifiers(Entity entity)
+        {
+            var offenseMods = new OffenseMods();
+
+            if (entity.HasInventory(out var inventoryComponent))
             {
-                if (item is IOffenseMods)
+                foreach(IItem item in inventoryComponent.items.Values)
                 {
-                    var modItem = (IOffenseMods)item;
-                    var mods = modItem.GetOffenseModifiers();
-                    offenseMods.totalAim += mods.totalAim;
-                    offenseMods.totalDamage += mods.totalDamage;                    
+                    offenseMods.Add(item);                    
                 }
             }
 
             return offenseMods;
         }
 
-        public bool HasDefense(Entity target, out Defense defCom)
+        public OffenseMods GetItemOffenseModifiers(Inventory inv)
         {
-            bool foundDefense = HasComponent(target, ComponentType.Defense, out var defICom);
-            defCom = (Defense)defICom;
-            return foundDefense;
-        }
+            var offenseMods = new OffenseMods();
+            foreach(IItem item in inv.items.Values)
+            {
+                offenseMods.Add(item);                    
+            }
 
-        public bool HasInventory(Entity origin, out Inventory offCom)
-        {
-            bool foundInventory = HasComponent(origin, ComponentType.Inventory, out var invICom);
-            offCom = (Inventory)invICom;
-            return foundInventory;
-        }
-
-        public bool HasOffense(Entity origin, out Offense offCom)
-        {
-            bool foundOffense = HasComponent(origin, ComponentType.Offense, out var offICom);
-            offCom = (Offense)offICom;
-            return foundOffense;
-        }
-
-        public bool HasComponent(Entity entity, ComponentType type, out IComponent component)
-        {
-            return entity.components.TryGetValue(type, out component);;
+            return offenseMods;
         }
     }
 }

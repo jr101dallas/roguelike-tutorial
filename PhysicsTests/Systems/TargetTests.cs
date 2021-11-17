@@ -49,7 +49,7 @@ namespace PhysicsTest
             inv.items.Add(2, new Weapon());
             inv.items.Add(3, new Weapon());
 
-            var mods = unv.inf.target.GetItemModifiers(inv);
+            var mods = unv.inf.target.GetItemOffenseModifiers(inv);
 
             Assert.AreEqual(15, mods.totalAim, "aimModsTotal not expected value.");
         }
@@ -63,7 +63,7 @@ namespace PhysicsTest
             inv.items.Add(2, new Weapon());
             inv.items.Add(3, new Weapon());
 
-            var mods = unv.inf.target.GetItemModifiers(inv);
+            var mods = unv.inf.target.GetItemOffenseModifiers(inv);
 
             Assert.AreEqual(15, mods.totalDamage, "aimModsTotal not expected value.");
         }
