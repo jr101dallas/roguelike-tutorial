@@ -20,6 +20,15 @@ namespace PhysicsTest
         }
 
         [TestMethod]
+        public void AddOffenseModsDoesNotChangeRngValue()
+        {
+            var off1 = new OffenseMods(8);
+            var off2 = new OffenseMods(11);
+            off1.Add(off2);
+            Assert.AreEqual(8, off1.rngValue);
+        }
+
+        [TestMethod]
         public void AddItemSumsValues()
         {
             var off1 = new OffenseMods(){totalAim = 18, totalDamage = 11};
