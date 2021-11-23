@@ -22,8 +22,9 @@ namespace Physics.Systems
         {
             if (!targetEntity.HasDefense(out var defenseComponent)) return;
 
-            var offenseMods = GetEntityOffenseModifiers(originEntity);
             var num = _rand.Next(100);
+            var offenseMods = new OffenseMods(num);
+            offenseMods.Add(GetEntityOffenseModifiers(originEntity));
             if (num + offenseMods.totalAim > 50)
             {
                 defenseComponent.CurrentHealth -= offenseMods.totalDamage;
