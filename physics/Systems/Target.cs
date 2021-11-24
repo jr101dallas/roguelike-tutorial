@@ -20,20 +20,11 @@ namespace Physics.Systems
 
         public void TargetEntity(Entity originEntity, Entity targetEntity)
         {
-            if (!targetEntity.HasDefense(out var defenseComponent)) return;
-
             var num = _rand.Next(100);
             var offenseMods = new OffenseMods(num);
             offenseMods.Add(GetEntityOffenseModifiers(originEntity));
-            if (num + offenseMods.totalAim > 50)
-            {
-                defenseComponent.CurrentHealth -= offenseMods.totalDamage;
-                if(defenseComponent.CurrentHealth <= 0)
-                {
-                    Console.WriteLine($"Entity {targetEntity.Id.ToString()} has been removed from play!");
-                    _unv.entities.Remove(targetEntity.Id);
-                }
-            }
+            
+            _unv.inf.collision.ResolveCollision(offenseMods, targetEntity);
         }
 
         public OffenseMods GetEntityOffenseModifiers(Entity entity)
