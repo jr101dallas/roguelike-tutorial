@@ -25,7 +25,8 @@ namespace PhysicsTest
         [TestMethod]
         public void TargetEntityCurrentHealthIs45()
         {
-            var targetEntity = new Entity();
+            var ef = new EntityFactory();
+            var targetEntity = ef.GetEntity(3);
             var collision = new Collision(new Universe());
 
             collision.ResolveCollision(new OffenseMods(), targetEntity);
