@@ -19,7 +19,7 @@ namespace PhysicsTest.Components
         public void DefaultInventoryHasOneItem()
         {
             var inventory = new Inventory();
-            Assert.AreEqual(1, inventory.items.Count, "Expected a single hardcoded Item in Inventory constructor.");
+            Assert.AreEqual(2, inventory.items.Count, "Expected two hardcoded Items in Inventory constructor.");
         }
 
         [TestMethod]

@@ -46,8 +46,9 @@ namespace PhysicsTest
             var unv = new Universe();
             var inv = new Inventory();
             //inv.items.Add(1, new Weapon()); items[1] default hardcoded to Weapon
-            inv.items.Add(2, new Weapon());
+            //inv.items.Add(2, new Armor()); items[2] default hardcoded to Armor
             inv.items.Add(3, new Weapon());
+            inv.items.Add(4, new Weapon());
 
             var mods = unv.inf.target.GetItemOffenseModifiers(inv);
 
@@ -60,8 +61,9 @@ namespace PhysicsTest
             var unv = new Universe();
             var inv = new Inventory();
             //inv.items.Add(1, new Weapon()); items[1] default hardcoded to Weapon
-            inv.items.Add(2, new Weapon());
+            //inv.items.Add(2, new Armor()); items[2] default hardcoded to Armor
             inv.items.Add(3, new Weapon());
+            inv.items.Add(4, new Weapon());
 
             var mods = unv.inf.target.GetItemOffenseModifiers(inv);
 

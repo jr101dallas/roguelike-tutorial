@@ -11,6 +11,7 @@ namespace Physics.Components
         public Inventory()
         {
             items.Add(1,new Weapon());
+            items.Add(2,new Armor());
         }
     }
 }
